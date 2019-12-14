@@ -628,7 +628,7 @@
   //#define DELTA_CALIBRATION_MENU
 
   // uncomment to add G33 Delta Auto-Calibration (Enable EEPROM_SETTINGS to store results)
-  //#define DELTA_AUTO_CALIBRATION
+  #define DELTA_AUTO_CALIBRATION
 
   // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
 
@@ -1002,7 +1002,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, 0, -16.20 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, 0, -15 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 15
