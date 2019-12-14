@@ -181,3 +181,7 @@ cmake-build-*
 
 #Python
 __pycache__
+
+
+#My VSCode Workspace
+Predator.code-workspace
