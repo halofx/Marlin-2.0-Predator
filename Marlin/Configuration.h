@@ -538,9 +538,9 @@
   //#define DEFAULT_bedKd 305.4
 
   // Predator Glass Bed
-  #define DEFAULT_bedKp 374.03
-  #define DEFAULT_bedKi 72.47
-  #define DEFAULT_bedKd 482.59
+  #define DEFAULT_bedKp 34.71
+  #define DEFAULT_bedKi 5.18
+  #define DEFAULT_bedKd 155.05
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
