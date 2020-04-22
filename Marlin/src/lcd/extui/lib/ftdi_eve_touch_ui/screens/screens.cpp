@@ -56,6 +56,9 @@ SCREEN_TABLE {
 #if ENABLED(BABYSTEPPING)
   DECL_SCREEN(NudgeNozzleScreen),
 #endif
+#if HAS_MESH
+  DECL_SCREEN(BedMeshScreen),
+#endif
   DECL_SCREEN(MoveAxisScreen),
   DECL_SCREEN(StepsScreen),
 #if HAS_TRINAMIC_CONFIG
@@ -65,7 +68,7 @@ SCREEN_TABLE {
 #if HAS_BED_PROBE
   DECL_SCREEN(ZOffsetScreen),
 #endif
-#if HOTENDS > 1
+#if HAS_MULTI_HOTEND
   DECL_SCREEN(NozzleOffsetScreen),
 #endif
 #if ENABLED(BACKLASH_GCODE)

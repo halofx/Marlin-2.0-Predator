@@ -53,7 +53,6 @@
   #include "../lcd/extui/ui_api.h"
 #endif
 
-#include "../core/language.h"
 #include "../lcd/ultralcd.h"
 
 #if HAS_BUZZER
@@ -485,7 +484,7 @@ void wait_for_confirmation(const bool is_reload/*=false*/, const int8_t max_beep
   #endif
 
   // Start the heater idle timers
-  const millis_t nozzle_timeout = (millis_t)(PAUSE_PARK_NOZZLE_TIMEOUT) * 1000UL;
+  const millis_t nozzle_timeout = SEC_TO_MS(PAUSE_PARK_NOZZLE_TIMEOUT);
 
   HOTEND_LOOP() thermalManager.hotend_idle[e].start(nozzle_timeout);
 
@@ -499,10 +498,10 @@ void wait_for_confirmation(const bool is_reload/*=false*/, const int8_t max_beep
   // Wait for filament insert by user and press button
   KEEPALIVE_STATE(PAUSED_FOR_USER);
   #if ENABLED(HOST_PROMPT_SUPPORT)
-    host_prompt_do(PROMPT_USER_CONTINUE, PSTR("Nozzle Parked"), CONTINUE_STR);
+    host_prompt_do(PROMPT_USER_CONTINUE, GET_TEXT(MSG_NOZZLE_PARKED), CONTINUE_STR);
   #endif
   #if ENABLED(EXTENSIBLE_UI)
-    ExtUI::onUserConfirmRequired_P(PSTR("Nozzle Parked"));
+    ExtUI::onUserConfirmRequired_P(GET_TEXT(MSG_NOZZLE_PARKED));
   #endif
   wait_for_user = true;    // LCD click or M108 will clear this
   while (wait_for_user) {
@@ -523,20 +522,20 @@ void wait_for_confirmation(const bool is_reload/*=false*/, const int8_t max_beep
       SERIAL_ECHO_MSG(_PMSG(STR_FILAMENT_CHANGE_HEAT));
 
       #if ENABLED(HOST_PROMPT_SUPPORT)
-        host_prompt_do(PROMPT_USER_CONTINUE, PSTR("HeaterTimeout"), PSTR("Reheat"));
+        host_prompt_do(PROMPT_USER_CONTINUE, GET_TEXT(MSG_HEATER_TIMEOUT), GET_TEXT(MSG_REHEAT));
       #endif
 
       #if ENABLED(EXTENSIBLE_UI)
-        ExtUI::onUserConfirmRequired_P(PSTR("HeaterTimeout"));
+        ExtUI::onUserConfirmRequired_P(GET_TEXT(MSG_HEATER_TIMEOUT));
       #endif
 
       wait_for_user_response(0, true); // Wait for LCD click or M108
 
       #if ENABLED(HOST_PROMPT_SUPPORT)
-        host_prompt_do(PROMPT_INFO, PSTR("Reheating"));
+        host_prompt_do(PROMPT_INFO, GET_TEXT(MSG_REHEATING));
       #endif
       #if ENABLED(EXTENSIBLE_UI)
-        ExtUI::onStatusChanged(PSTR("Reheating..."));
+        ExtUI::onStatusChanged_P(GET_TEXT(MSG_REHEATING));
       #endif
 
       // Re-enable the heaters if they timed out
@@ -549,7 +548,7 @@ void wait_for_confirmation(const bool is_reload/*=false*/, const int8_t max_beep
       show_continue_prompt(is_reload);
 
       // Start the heater idle timers
-      const millis_t nozzle_timeout = (millis_t)(PAUSE_PARK_NOZZLE_TIMEOUT) * 1000UL;
+      const millis_t nozzle_timeout = SEC_TO_MS(PAUSE_PARK_NOZZLE_TIMEOUT);
 
       HOTEND_LOOP() thermalManager.hotend_idle[e].start(nozzle_timeout);
       #if ENABLED(HOST_PROMPT_SUPPORT)
