@@ -1467,7 +1467,7 @@
 #endif
 
 // Delta only homes to Z
-#define HOMING_FEEDRATE_Z  (200*60)
+#define HOMING_FEEDRATE_Z  (100*60)
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -1576,7 +1576,7 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 190
+#define PREHEAT_1_TEMP_HOTEND 200
 #define PREHEAT_1_TEMP_BED     70
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
@@ -1700,7 +1700,7 @@
  *
  * View the current statistics with M78.
  */
-//#define PRINTCOUNTER
+#define PRINTCOUNTER
 
 //=============================================================================
 //============================= LCD and SD support ============================
