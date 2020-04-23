@@ -484,9 +484,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Predator PID output
-   #define DEFAULT_Kp 7.68
-   #define DEFAULT_Ki 0.37 
-   #define DEFAULT_Kd 39.52
+   #define DEFAULT_Kp 12.08
+   #define DEFAULT_Ki 0.75 
+   #define DEFAULT_Kd 49.52
 
   // Ultimaker
   //  #define DEFAULT_Kp 22.2
