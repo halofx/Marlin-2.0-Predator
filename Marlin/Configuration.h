@@ -1359,12 +1359,8 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-<<<<<<< HEAD
   // Works best with 5 or more points in each dimension.
   #define GRID_MAX_POINTS_X 7        //  7x7 leveling grid
-=======
-  #define GRID_MAX_POINTS_X 7            //  9x9 leveling grid
->>>>>>> master
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
