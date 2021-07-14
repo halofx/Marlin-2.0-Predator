@@ -35,6 +35,10 @@
 #include "../../module/stepper.h"
 #include "../../sd/cardreader.h"
 
+#if ENABLED(PSU_CONTROL)
+  #include "../../feature/power.h"
+#endif
+
 #if HAS_GAMES && DISABLED(LCD_INFO_MENU)
   #include "game/game.h"
 #endif
@@ -385,8 +389,16 @@ void menu_main() {
   // Switch power on/off
   //
   #if ENABLED(PSU_CONTROL)
-    if (powersupply_on)
-      GCODES_ITEM(MSG_SWITCH_PS_OFF, PSTR("M81"));
+    if (powerManager.psu_on)
+      #if ENABLED(PS_OFF_CONFIRM)
+        CONFIRM_ITEM(MSG_SWITCH_PS_OFF,
+          MSG_YES, MSG_NO,
+          ui.poweroff, ui.goto_previous_screen,
+          GET_TEXT(MSG_SWITCH_PS_OFF), (const char *)nullptr, PSTR("?")
+        );
+      #else
+        GCODES_ITEM(MSG_SWITCH_PS_OFF, PSTR("M81"));
+      #endif
     else
       GCODES_ITEM(MSG_SWITCH_PS_ON, PSTR("M80"));
   #endif
