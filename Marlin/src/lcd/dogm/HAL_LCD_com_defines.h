@@ -23,7 +23,7 @@
 
 // Use this file to select the com driver for device drivers that are NOT in the U8G library
 
-#include <U8glib.h>
+#include <U8glib-HAL.h>
 
 #ifndef U8G_HAL_LINKS   // Defined by LPC1768/9 environments in platform.ini
 
@@ -52,7 +52,9 @@
 
   #elif defined(ARDUINO_ARCH_STM32)
 
+    uint8_t u8g_com_std_sw_spi_fn(u8g_t *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr);
     uint8_t u8g_com_stm32duino_hw_spi_fn(u8g_t *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr);
+    #define U8G_COM_HAL_SW_SPI_FN     u8g_com_std_sw_spi_fn
     #define U8G_COM_HAL_HW_SPI_FN     u8g_com_stm32duino_hw_spi_fn
 
   #elif defined(__AVR__)
