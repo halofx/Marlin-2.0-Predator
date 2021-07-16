@@ -145,7 +145,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Predator r6d"
+#define CUSTOM_MACHINE_NAME "Predator r6_001"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -581,9 +581,16 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-#define DEFAULT_Kp 14.84 // From Predator Example
-#define DEFAULT_Ki 1.01
-#define DEFAULT_Kd 54.43
+//#define DEFAULT_Kp 14.84 // From Predator Example
+//#define DEFAULT_Ki 1.01
+//#define DEFAULT_Kd 54.43
+
+#define DEFAULT_Kp 20.05 // My Values from Marlin menu PID - 6 rounds, 220C
+#define DEFAULT_Ki 1.52
+#define DEFAULT_Kd 65.95
+
+
+
 #endif
 #endif // PIDTEMP
 
@@ -780,17 +787,17 @@
 #define DELTA_DIAGONAL_ROD 462.45 // (mm) Stock is 440.0, My custom arms are 440.45 + 24 for the magballs.
 
 // Distance between bed and nozzle Z home position
-#define DELTA_HEIGHT 416.85 // (mm) Get this value from G33 auto calibrate
+#define DELTA_HEIGHT 418.08 // (mm) Get this value from G33 auto calibrate
 
-#define DELTA_ENDSTOP_ADJ { -0.444, -0.346, 0.00 } // Get these values from G33 auto calibrate
+#define DELTA_ENDSTOP_ADJ { -0.29, 0.0, -0.03 } // Get these values from G33 auto calibrate
 
 // Horizontal distance bridged by diagonal push rods when effector is centered.
-#define DELTA_RADIUS 229.25 // (mm) Get this value from G33 auto calibrate
+#define DELTA_RADIUS 229.55 // (mm) Get this value from G33 auto calibrate
 
 // Trim adjustments for individual towers
 // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
 // measured in degrees anticlockwise looking from above the printer
-#define DELTA_TOWER_ANGLE_TRIM { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
+#define DELTA_TOWER_ANGLE_TRIM { 0.24, -0.19, -0.05 } // Get these values from G33 auto calibrate
 
 // Delta radius and diagonal rod adjustments (mm)
 //#define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
@@ -862,7 +869,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -872,7 +879,7 @@
 #define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
 
 /**
  * Stepper Drivers
