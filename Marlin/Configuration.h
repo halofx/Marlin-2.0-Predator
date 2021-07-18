@@ -142,10 +142,11 @@
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_B
   #define Z_MIN_PIN PE4
+  #define FIL_RUNOUT_PIN  PC2   // E0DET
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Predator r6_001"
+#define CUSTOM_MACHINE_NAME "Predator r6_003"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -1276,8 +1277,8 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
-//#define EXTRA_PROBING    1
+#define MULTIPLE_PROBING 2
+#define EXTRA_PROBING    1
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
