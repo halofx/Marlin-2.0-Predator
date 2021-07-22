@@ -2170,7 +2170,17 @@
  * Currently handles M108, M112, M410, M876
  * NOTE: Not yet implemented for all platforms.
  */
+
+/**
+ * This is required for Smart Filament Sensor to work on the SKR 2 board.
+ * Found reference here:
+ * https://www.makenprint.uk/3d-printing/3d-printing-reviews/3d-printer-accessory-reviews/btt-smart-filament-sensor-guide#Marlin-Configuration_Adv.h
+ **/
+
 #define EMERGENCY_PARSER
+
+
+
 
 /**
  * Realtime Reporting (requires EMERGENCY_PARSER)
@@ -2189,7 +2199,7 @@
  */
 //#define REALTIME_REPORTING_COMMANDS
 #if ENABLED(REALTIME_REPORTING_COMMANDS)
-  //#define FULL_REPORT_TO_HOST_FEATURE   // Auto-report the machine status like Grbl CNC
+//#define FULL_REPORT_TO_HOST_FEATURE   // Auto-report the machine status like Grbl CNC
 #endif
 
 // Bad Serial-connections can miss a received command by sending an 'ok'
