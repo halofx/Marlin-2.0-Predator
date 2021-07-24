@@ -133,7 +133,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "PREDATOR r5"
+#define CUSTOM_MACHINE_NAME "PREDATOR r6 b003"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -420,7 +420,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 5  // From Predator Examples file
+#define TEMP_SENSOR_0 5  // E3D Spec
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -451,7 +451,7 @@
 #define TEMP_WINDOW              1  // (°C) Temperature proximity for the "temperature reached" timer
 #define TEMP_HYSTERESIS          3  // (°C) Temperature proximity considered "close enough" to the target
 
-#define TEMP_BED_RESIDENCY_TIME 10  // (seconds) Time to wait for bed to "settle" in M190
+#define TEMP_BED_RESIDENCY_TIME  5  // (seconds) Time to wait for bed to "settle" in M190
 #define TEMP_BED_WINDOW          1  // (°C) Temperature proximity for the "temperature reached" timer
 #define TEMP_BED_HYSTERESIS      3  // (°C) Temperature proximity considered "close enough" to the target
 
@@ -504,9 +504,14 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  14.84  // From Predator Example
-    #define DEFAULT_Ki   1.01
-    #define DEFAULT_Kd  54.43
+//    #define DEFAULT_Kp  14.84  // From Predator Example
+//    #define DEFAULT_Ki   1.01
+//    #define DEFAULT_Kd  54.43
+
+    #define DEFAULT_Kp  20.43  // From PID Tuning
+    #define DEFAULT_Ki   1.56
+    #define DEFAULT_Kd  66.86
+
   #endif
 #endif // PIDTEMP
 
@@ -570,7 +575,7 @@
  * *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
  */
 #define PREVENT_COLD_EXTRUSION
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 160
 
 /**
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
@@ -627,7 +632,7 @@
   // Make delta curves from many straight lines (linear interpolation).
   // This is a trade-off between visible corners (not enough segments)
   // and processor overload (too many expensive sqrt calls).
-  #define DELTA_SEGMENTS_PER_SECOND 180
+  #define DELTA_SEGMENTS_PER_SECOND 200
 
   // After homing move down to a height where XY movement is unconstrained
   //#define DELTA_HOME_TO_SAFE_ZONE
@@ -659,17 +664,17 @@
   #define DELTA_DIAGONAL_ROD 462.45       // (mm) Stock is 440.0, My custom arms are 440.45 + 24 for the magballs.
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT 416.85             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT 417.82             // (mm) Get this value from G33 auto calibrate
 
-  #define DELTA_ENDSTOP_ADJ { -0.444, -0.346, 0.00 } // Get these values from G33 auto calibrate
+  #define DELTA_ENDSTOP_ADJ { -0.19, 0.00, -0.20 } // Get these values from G33 auto calibrate
 
   // Horizontal distance bridged by diagonal push rods when effector is centered.
-  #define DELTA_RADIUS 229.25              // (mm) Get this value from G33 auto calibrate
+  #define DELTA_RADIUS 229.65              // (mm) Get this value from G33 auto calibrate
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
   // measured in degrees anticlockwise looking from above the printer
-  #define DELTA_TOWER_ANGLE_TRIM { +0.246, -0.185, -0.061 } // Get these values from G33 auto calibrate
+  #define DELTA_TOWER_ANGLE_TRIM { +0.18, -0.11, -0.07 } // Get these values from G33 auto calibrate
 
   // Delta radius and diagonal rod adjustments (mm)
   //#define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
@@ -873,7 +878,7 @@
 
   //#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
   #if ENABLED(LIMITED_JERK_EDITING)
-    #define MAX_JERK_EDIT_VALUES { 20, 20, 0.6, 10 } // ...or, set your own edit limits
+    #define MAX_JERK_EDIT_VALUES { 20, 20, 20, 10 } // ...or, set your own edit limits
   #endif
 #endif
 
