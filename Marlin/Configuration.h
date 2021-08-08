@@ -133,7 +133,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "PREDATOR r6 b003"
+#define CUSTOM_MACHINE_NAME "PREDATOR r6 b05"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -661,20 +661,20 @@
   #define DELTA_PRINTABLE_RADIUS 185.0    // (mm)
 
   // Center-to-center distance of the holes in the diagonal push rods.
-  #define DELTA_DIAGONAL_ROD 462.45       // (mm) Stock is 440.0, My custom arms are 440.45 + 24 for the magballs.
+  #define DELTA_DIAGONAL_ROD 448.67       // (mm) Stock is 440.0, My custom arms are 440.45 + 24 for the magballs.
 
   // Distance between bed and nozzle Z home position
   #define DELTA_HEIGHT 417.82             // (mm) Get this value from G33 auto calibrate
 
-  #define DELTA_ENDSTOP_ADJ { -0.19, 0.00, -0.20 } // Get these values from G33 auto calibrate
+  #define DELTA_ENDSTOP_ADJ { -0.22, 0.00, -0.09 } // Get these values from G33 auto calibrate
 
   // Horizontal distance bridged by diagonal push rods when effector is centered.
-  #define DELTA_RADIUS 229.65              // (mm) Get this value from G33 auto calibrate
+  #define DELTA_RADIUS 227.80              // (mm) Get this value from G33 auto calibrate
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
   // measured in degrees anticlockwise looking from above the printer
-  #define DELTA_TOWER_ANGLE_TRIM { +0.18, -0.11, -0.07 } // Get these values from G33 auto calibrate
+  #define DELTA_TOWER_ANGLE_TRIM { +0.21, -0.14, -0.07 } // Get these values from G33 auto calibrate
 
   // Delta radius and diagonal rod adjustments (mm)
   //#define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
