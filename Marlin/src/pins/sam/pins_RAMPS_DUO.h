@@ -43,14 +43,9 @@
  *       A15 | A11
  */
 
-#if NOT_TARGET(__SAM3X8E__, __AVR_ATmega2560__)
-  #error "Oops! Select 'Arduino Due' or 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
-#endif
-
 #define BOARD_INFO_NAME "RAMPS Duo"
 
-#define IS_RAMPS_DUO
-
+#define ALLOW_SAM3X8E
 #include "../ramps/pins_RAMPS.h"
 
 //
@@ -65,12 +60,12 @@
 #undef TEMP_BED_PIN
 #define TEMP_BED_PIN                          10  // Analog Input
 
-// SPI for Max6675 or Max31855 Thermocouple
-#undef MAX6675_SS_PIN
+// SPI for MAX Thermocouple
+#undef TEMP_0_CS_PIN
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      69  // Don't use 53 if using Display/SD card
+  #define TEMP_0_CS_PIN                       69  // Don't use 53 if using Display/SD card
 #else
-  #define MAX6675_SS_PIN                      69  // Don't use 49 (SD_DETECT_PIN)
+  #define TEMP_0_CS_PIN                       69  // Don't use 49 (SD_DETECT_PIN)
 #endif
 
 //
@@ -125,6 +120,10 @@
         #undef BTN_EN2
         #define BTN_EN2                       66  // AUX2 PIN 4
       #endif
+    #endif
+
+    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+      #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
     #endif
 
   #endif // IS_NEWPANEL

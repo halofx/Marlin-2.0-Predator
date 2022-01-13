@@ -55,7 +55,7 @@
 
 #include "../../inc/MarlinConfigPre.h"
 
-#if HAS_MARLINUI_U8GLIB
+#if HAS_MARLINUI_U8GLIB && DISABLED(TFT_CLASSIC_UI)
 
 #include "HAL_LCD_com_defines.h"
 
@@ -73,7 +73,7 @@ static const uint8_t u8g_dev_st7920_128x64_HAL_init_seq[] PROGMEM = {
   0x038,              // 8 Bit interface (DL=1), basic instruction set (RE=0)
   0x00C,              // display on, cursor & blink off; 0x08: all off
   0x006,              // Entry mode: Cursor move to right, DDRAM address counter (AC) plus 1, no shift
-  0x002,              // disable scroll, enable CGRAM adress
+  0x002,              // disable scroll, enable CGRAM address
   0x001,              // clear RAM, needs 1.6 ms
   U8G_ESC_DLY(100),   // delay 100 ms
 
